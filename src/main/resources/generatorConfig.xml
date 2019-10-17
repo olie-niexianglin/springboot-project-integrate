@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="H2Tables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <!-- Model 生成目录不要与真是目录在一起，防止出现覆盖情况 -->
+        <javaModelGenerator targetPackage="com.olie.mybatis.model"
+                            targetProject="./src/main/java/generator">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- Mapper 类 生成目录不要与真是目录在一起，防止出现覆盖情况 -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="./src/main/java/generator">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 生成 注解 Mapper 类 和 Mapper.xml 混合形式 -->
+        <javaClientGenerator type="MIXEDMAPPER"
+                             targetPackage="com.olie.mybatis.mapper"
+                             targetProject="./src/main/java/generator">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="schedule_task" domainObjectName="ScheduleTask" >
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" />
+        </table>
+
+    </context>
+</generatorConfiguration>
