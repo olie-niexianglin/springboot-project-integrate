@@ -17,9 +17,12 @@ import org.apache.ibatis.session.RowBounds;
 public interface ScheduleTaskMapper {
 
 
+    //pageHelper 分页
     @Select("select * from schedule_task order by id")
     List<ScheduleTask> findAllWithRowBounds(RowBounds rowBounds);
 
+
+    //pageHelper 分页
     @Select("select * from schedule_task order by id")
     List<ScheduleTask> findAllWithParam(@Param("pageNum") int pageNum,
                                   @Param("pageSize") int pageSize);

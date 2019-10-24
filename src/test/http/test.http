@@ -4,4 +4,33 @@ Content-Type: application/x-www-form-urlencoded
 
 id=999&value=content
 
+
+
+
+###
+
+POST http://localhost:8080/logExample
+Content-Type: application/x-www-form-urlencoded
+
+param=999&value=content
+
+###
+
+POST http://localhost:8080/setRedis
+Content-Type: application/x-www-form-urlencoded
+
+key=999&value=content
+
+###
+
+POST http://localhost:8080/getRedisBody
+Content-Type:application/json
+
+{
+  "name": "demoData",
+  "interests": [
+    "demoData"
+  ]
+}
+
 ###

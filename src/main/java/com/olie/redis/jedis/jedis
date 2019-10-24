@@ -1,0 +1,6 @@
+直接使用 Jedis 客户端访问 Redis
+    Jedis 客户端不是线程安全的，
+    所以需要使用 JedisPool 获取 Jedis 连接实例
+
+
+

@@ -1,0 +1,33 @@
+Spring 对缓存的抽象
+Spring 为不同的缓存提供了一层抽象
+为 Java 方法增加缓存，缓存执行结果
+支持 ConcurrentMap EhCache Caffeine JCache Redis
+接口：
+    org.springframework.cache.Cache
+    org.springframework.cache.CacheManager
+
+Spring 自动完成方法自动缓存
+
+相关注解
+@EnableCaching
+    @Cacheable：
+    @CacheEvict：清除缓存
+    @CachePut：不管三七二十一，直接将数据缓存
+    @Caching：打包操作，可以执行多个注解语义
+    @CacheConfig：缓存设置
+    
+ 
+使用方式
+1 引入依赖
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+2 启动类添加注解
+@EnableCaching(proxyTargetClass = true) 
+

@@ -7,7 +7,6 @@
     <property name="log-dir" value="log"/>
     <property name="log-name" value="logFile"/>
 
-    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>配置appender(可以配置多个)>>>>>>>>>>>>>>>>>>>>>>>>> -->
     <!--
         name:自取即可,
         class:加载指定类(ch.qos.logback.core.ConsoleAppender类会将日志输出到>>>控制台),
@@ -30,6 +29,7 @@
     -->
     <appender name="fileAppender"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
+
         <!-- 把日志文件输出到:项目启动的目录下的log文件夹(无则自动创建)下 -->
         <file>${log-dir}/${log-name}.log</file>
         <!-- 把日志文件输出到:name为logFilePositionDir的property标签指定的位置下 -->
@@ -65,6 +65,12 @@
             <!-- 日志编码 -->
             <charset class="java.nio.charset.Charset">UTF-8</charset>
         </encoder>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
     </appender>
 
     <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>使用appender>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
@@ -84,7 +90,7 @@
         root:logger的根节点,appender-ref:确定使用哪个appender,将日志信息显示在console
         注:如果不指定配置此项的话,那么SpringBoot启动后,将不会在console打印任何信息
     -->
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="consoleAppender"/>
     </root>
 </configuration>
