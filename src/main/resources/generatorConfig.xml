@@ -16,20 +16,20 @@
                         password="root">
         </jdbcConnection>
 
-        <!-- Model 生成目录不要与真是目录在一起，防止出现覆盖情况 -->
+        <!-- Model 生成目录不要与真是目录在一起，防止出现覆盖情况  注意：./src/main/java/generator 必须真实存在-->
         <javaModelGenerator targetPackage="com.olie.mybatis.model"
                             targetProject="./src/main/java/generator">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <!-- Mapper 类 生成目录不要与真是目录在一起，防止出现覆盖情况 -->
-        <sqlMapGenerator targetPackage="mapper"
+        <!-- Mapper 类 生成目录不要与真是目录在一起，防止出现覆盖情况 注意：./src/main/java/generator 必须真实存在 -->
+        <sqlMapGenerator targetPackage="com.olie.mybatis.mapper"
                          targetProject="./src/main/java/generator">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
-        <!-- 生成 注解 Mapper 类 和 Mapper.xml 混合形式 -->
+        <!-- 生成 注解 Mapper 类 和 Mapper.xml 混合形式 注意：./src/main/java/generator 必须真实存在 -->
         <javaClientGenerator type="MIXEDMAPPER"
                              targetPackage="com.olie.mybatis.mapper"
                              targetProject="./src/main/java/generator">
