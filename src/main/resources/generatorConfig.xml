@@ -11,7 +11,7 @@
         <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC"
+                        connectionURL="jdbc:mysql://localhost:3306/blog?serverTimezone=UTC"
                         userId="root"
                         password="root">
         </jdbcConnection>
@@ -36,7 +36,7 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="schedule_task" domainObjectName="ScheduleTask" >
+        <table tableName="t_order" domainObjectName="TOrder" >
             <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" />
         </table>
 

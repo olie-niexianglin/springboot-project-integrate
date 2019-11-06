@@ -11,11 +11,12 @@ public class RestTemplateConfiguration {
 
     /**
      * SpringBoot 帮我们自动注册了 RestTemplateBuilder
+     *
      * @param restTemplateBuilder
      * @return
      */
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
-        return restTemplateBuilder.build();
+        return restTemplateBuilder.setConnectTimeout(100).setReadTimeout(500).build();
     }
 }

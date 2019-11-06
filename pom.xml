@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <sharding-sphere.version>4.0.0-RC2</sharding-sphere.version>
     </properties>
 
     <dependencies>
@@ -106,6 +107,21 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <!-- Spring 使用 Redis 组件完成 Cache -->
+
+
+        <!-- sharding jdbc -->
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+            <version>${sharding-sphere.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-namespace</artifactId>
+            <version>${sharding-sphere.version}</version>
+        </dependency>
+        <!-- sharding jdbc -->
 
 
     </dependencies>

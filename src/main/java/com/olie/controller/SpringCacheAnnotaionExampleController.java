@@ -1,5 +1,6 @@
 package com.olie.controller;
 
+import com.olie.mybatis.model.ScheduleTask;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -18,7 +19,9 @@ public class SpringCacheAnnotaionExampleController {
     // redis key = coffee::key
     public Object cacheable(@PathParam("key") String key) {
 
-        return "Success";
+        ScheduleTask scheduleTask = new ScheduleTask();
+        scheduleTask.withBusinessNo("1213").withId(1231L);
+        return scheduleTask;
     }
 
     @PostMapping("/cacheEvict")
